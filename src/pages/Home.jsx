@@ -100,6 +100,10 @@ export default function Home() {
                     </div>
                   </div>
                   <h4 className="reveal"><span>AI &amp; Machine Learning</span> Engineer</h4>
+                  <div className="hero-availability reveal">
+                    <span className="hero-availability-dot" aria-hidden="true"></span>
+                    <span><span className="nowrap">Open to Spring Co-op</span> <span className="nowrap">&amp; Full-time roles</span></span>
+                  </div>
                 </div>
               </div>
             </div>
