@@ -62,3 +62,6 @@ coverage/
 
 # Previous version of the site
 _old-version/
+
+.vercel
+.env*
