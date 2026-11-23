@@ -1,21 +1,21 @@
-// Research papers. Fill in the fields marked TODO and set `placeholder: false`.
+// Research papers. Set `placeholder: true` on a new entry until its details are final.
 // Put a PDF in public/assets/research/ and set `pdf: '/assets/research/your-file.pdf'`.
 export const PAPERS = [
   {
-    id: 'paper-1',
-    placeholder: true,
-    title: 'Research paper title', // TODO
-    authors: ['Sakshaat Raut'], // TODO: full author list, in order
-    venue: 'Venue / journal', // TODO: e.g. arXiv, a conference or journal name
-    year: '2026', // TODO
-    status: 'Under review', // TODO: Published, Accepted, Under review, Preprint
-    area: 'Machine Learning', // TODO
+    id: 'ev-commodity-prices',
+    placeholder: false,
+    title: 'Price Prediction of Commodities Used in Renewable Automotive Industry',
+    authors: ['Ashwini Dalvi', 'Vardhan Patil', 'Sakshaat Raut', 'Purav Sanghavi', 'Darshit Shah'],
+    venue: 'IJCACI 2024 Proceedings, Vol. 2 (Springer, Algorithms for Intelligent Systems)',
+    year: '2025',
+    status: 'Published',
+    area: 'Time-series Forecasting',
     abstract:
-      'A short abstract of the paper goes here: the problem, what you did, and the headline result. Two or three sentences is plenty.', // TODO
-    keywords: ['Machine Learning', 'Research'], // TODO
-    pdf: '', // e.g. '/assets/research/paper.pdf'
-    link: '', // e.g. an arXiv, DOI or publisher URL
-    code: '', // e.g. a GitHub repo URL
+      'EVs and hydrogen fuel cell vehicles depend on lithium, platinum and palladium, and their prices can make or break the transition. We studied historical price data for these commodities and applied forecasting models to project where their prices are heading, giving automakers, investors and policymakers an earlier read on supply risk.',
+    keywords: ['Time-series forecasting', 'Commodity prices', 'Electric vehicles', 'Lithium', 'Platinum'],
+    pdf: '',
+    link: 'https://link.springer.com/chapter/10.1007/978-981-96-3762-1_10',
+    code: '',
   },
 ];
 
