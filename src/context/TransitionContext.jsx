@@ -10,7 +10,8 @@ function getPageNameFromPath(pathname) {
   if (p.includes('research')) return 'Research';
   if (p.includes('life')) return 'Life Beyond';
   if (p.includes('contact')) return 'Contact';
-  return 'Home';
+  if (p === '' || p === '/' || p === '/index.html') return 'Home';
+  return '404';
 }
 
 export function TransitionProvider({ children }) {

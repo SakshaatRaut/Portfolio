@@ -7363,3 +7363,9 @@ html.js .life-hobby-photos.reveal.in-view .life-photo-reveal {
    text-align: center;
 }
 
+/* ------------------------- 404 -------------------------------------------------- */
+.not-found-header { min-height: 80vh; }
+.not-found-code { margin: 0 0 1.5em 0; opacity: .6; }
+.not-found-body { padding-top: 2.5em; }
+.not-found-body p { max-width: 30em; font-size: 1.15em; line-height: 1.65; margin: 0 0 2em 0; }
+.not-found-body .btn { display: inline-flex; }

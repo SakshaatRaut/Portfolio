@@ -14,6 +14,7 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import Research from './pages/Research';
 import Life from './pages/Life';
+import NotFound from './pages/NotFound';
 
 export default function App() {
   useSmoothScroll();
@@ -69,7 +70,7 @@ export default function App() {
           <Route path="/life-beyond" element={<Life />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/contact.html" element={<Contact />} />
-          <Route path="*" element={<Home />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
 
         {/* Global Footer (Used on Home, Work, About; Contact has its own footer) */}
