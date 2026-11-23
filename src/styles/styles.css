@@ -2841,7 +2841,7 @@ html.js body:not(.hero-reveal) .home-header .hero-scale {
 .home-header .hanger {
    position: absolute;
    left: 0;
-   top: 50%;
+   top: 38%;
    transform: translateY(-50%);
    display: inline-block;
 }
@@ -2934,7 +2934,7 @@ html.js body:not(.hero-reveal) .home-header .hero-scale {
       left: auto;
       right: 0;
       top: calc(var(--vh, 1vh) * 100);
-      transform: translate(0, -110%);
+      transform: translate(0, -150%);
    }
 
    .home-header .hanger svg,

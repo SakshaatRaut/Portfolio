@@ -53,7 +53,7 @@ export default function Home() {
             </div>
             <div className="overlay get-height">
               <div className="hanger">
-                <p><span>Located </span><span>in </span><span>{SITE.location}</span></p>
+                <p><span>Located in</span><span>United States</span></p>
                 <svg width="300px" height="121px" viewBox="0 0 300 121" version="1.1" xmlns="http://www.w3.org/2000/svg">
                   <title>Combined Shape</title>
                   <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
