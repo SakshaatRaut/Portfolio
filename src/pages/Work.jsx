@@ -41,7 +41,7 @@ export default function Work() {
           <div className="container medium">
             <div className="row">
               <div className="flex-col once-in">
-                <h1><span>Building intelligent </span><span>systems that ship</span></h1>
+                <h1><span>Things I built that </span><span>actually shipped</span></h1>
               </div>
             </div>
           </div>

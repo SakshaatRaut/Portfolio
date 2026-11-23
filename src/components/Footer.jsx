@@ -56,7 +56,7 @@ export default function Footer() {
                     >
                       <div className="btn-fill"></div>
                       <span className="btn-text">
-                        <span className="btn-text-inner">Get in touch</span>
+                        <span className="btn-text-inner">Ping me<small className="btn-sub">(I respond faster than my models train)</small></span>
                       </span>
                     </a>
                   </div>

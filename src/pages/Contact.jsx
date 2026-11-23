@@ -76,7 +76,7 @@ export default function Contact() {
       const sent = await sendMessage(fields, subject);
       if (!sent.ok) throw new Error(sent.error);
       setStatus('success');
-      setFeedback(`Thank you${name ? `, ${name.split(' ')[0]}` : ''}! Your message reached me and I'll reply soon.`);
+      setFeedback(`Thanks${name ? `, ${name.split(' ')[0]}` : ''}! Delivered with 100% recall. I'll be in touch soon.`);
       form.reset();
       setTimeout(() => { setStatus('idle'); setFeedback(''); }, 7000);
     } catch (err) {
@@ -147,7 +147,7 @@ export default function Contact() {
                 <div className="form-col">
                   <h5>05</h5>
                   <label className="label" htmlFor="form-message">Your message</label>
-                  <textarea className="field" id="form-message" name="message" rows="8" required placeholder={`Hello ${SITE.first}, I would like to talk about ... *`}></textarea>
+                  <textarea className="field" id="form-message" name="message" rows="8" required placeholder={`Hi ${SITE.first}, I have a role / project / wild idea... *`}></textarea>
                 </div>
                 <div className="btn-contact-send">
                   <div className="btn btn-round" data-scroll data-scroll-speed="2">
@@ -161,7 +161,7 @@ export default function Contact() {
                             ? 'Thank You'
                             : status === 'error'
                             ? 'Retry'
-                            : 'Send it!'}
+                            : 'Send it ↗'}
                         </span>
                       </span>
                       <input

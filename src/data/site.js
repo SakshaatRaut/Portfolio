@@ -46,7 +46,7 @@ export const SERVICES = [
     text: 'Retrieval-augmented generation, prompt tuning, query rewriting and custom embeddings, plus the optimization work that makes retrieval measurably better.',
   },
   {
-    title: 'The full package',
+    title: 'Notebook to production',
     text: 'End-to-end AI products: FastAPI and Django backends, Next.js and TypeScript interfaces, Docker, Kubernetes and AWS to ship them.',
   },
 ];

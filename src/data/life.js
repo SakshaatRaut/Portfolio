@@ -2,7 +2,7 @@
 // (e.g. '/assets/life/hike-1.jpg'). Empty strings show an "Add photo" slot.
 // The first photo in each list is the big one. Add layout: 'portrait' to show three tall photos side by side.
 export const LIFE_INTRO =
-  "When I'm not training models, I'm usually deep in an anime arc, chasing a shuttle with friends, out on a trail or on my bike. These are the things that keep me curious and recharged.";
+  "When I'm not training models, I'm usually deep in an anime arc, chasing a shuttle with friends, out on a trail or on my bike. These are the things that keep me curious and recharged. Every good model needs a rest epoch. These are mine.";
 
 export const HOBBIES = [
   {
@@ -10,7 +10,7 @@ export const HOBBIES = [
     title: 'Anime',
     tagline: 'Stories that hit harder than any loss curve.',
     text:
-      'Anime is where I unwind. I love long arcs, big fights and characters who keep pushing past their limits, from pirate crews to demon slayers.',
+      "Anime is where I unwind. I love long arcs, big fights and characters who keep pushing past their limits, from pirate crews to demon slayers. Unlike my models, I'm happy to overfit on One Piece.",
     facts: [
       { label: 'All-time favourites', value: 'One Piece, Demon Slayer, Bleach, Black Clover' },
       { label: 'Why I watch', value: 'Long arcs and characters who never give up' },
@@ -49,7 +49,7 @@ export const HOBBIES = [
   {
     id: 'bike-riding',
     title: 'Bike Riding',
-    tagline: 'Two wheels, open road.',
+    tagline: 'Two wheels, no roadmap, best kind of exploring.',
     text:
       'When I want to get outside without planning a whole hike, I go for a ride. It clears my head and is a great way to explore somewhere new.',
     facts: [

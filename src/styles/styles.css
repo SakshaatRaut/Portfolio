@@ -7350,3 +7350,16 @@ html.js .life-hobby-photos.reveal.in-view .life-photo-reveal {
    .home-header .hero-availability { font-size: .8em; margin-top: 1em; white-space: normal; }
 }
 .hero-availability .nowrap { white-space: nowrap; }
+
+/* ------------------------- Footer button subtitle -------------------------------------------------- */
+.btn-round .btn-text-inner .btn-sub {
+   display: block;
+   max-width: 11em;
+   margin: .45em auto 0;
+   font-size: .6em;
+   line-height: 1.3;
+   opacity: .75;
+   white-space: normal;
+   text-align: center;
+}
+

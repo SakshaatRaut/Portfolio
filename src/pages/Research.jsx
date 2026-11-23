@@ -25,7 +25,7 @@ export default function Research() {
         <div className="container medium">
           <div className="row">
             <div className="flex-col once-in">
-              <h1><span>Research that asks </span><span>why it works</span></h1>
+              <h1><span>Research that asks </span><span>why it works </span><span>(and why it doesn't)</span></h1>
             </div>
           </div>
         </div>

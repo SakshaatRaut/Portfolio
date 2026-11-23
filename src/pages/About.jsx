@@ -54,11 +54,11 @@ export default function About() {
                 </svg>
               </div>
               <p>
-                I build machine learning systems that leave the notebook: retrieval pipelines, vision models and LLM tools that real people use. I care about the numbers, and about shipping something that holds up outside a demo.
+                I build machine learning systems that leave the notebook: retrieval pipelines, vision models and LLM tools that real people use. I care about the numbers, and about shipping something that works on more than just my laptop.
               </p>
               <p>
                 <span style={{ opacity: 0.5, display: 'block', paddingTop: '0.5em' }}>
-                  Currently at UMD, open to ML roles<span className="animate-dot">.</span><span className="animate-dot">.</span><span className="animate-dot">.</span>
+                  Currently at UMD, optimizing for one objective: a great Spring Co-op or full-time role<span className="animate-dot">.</span><span className="animate-dot">.</span><span className="animate-dot">.</span>
                 </span>
               </p>
             </div>
@@ -153,7 +153,7 @@ export default function About() {
             <div className="flex-col">
               <div className="awwwards-badge"></div>
               <h2>Education &amp;<br />Background</h2>
-              <p>I am an AI and Machine Learning Engineer based in the {SITE.location}, studying Applied Machine Learning at the University of Maryland after a BTech in Information Technology in Mumbai.</p>
+              <p>I am an AI and Machine Learning Engineer based in the {SITE.location}, studying Applied Machine Learning at the University of Maryland after a BTech in Information Technology in Mumbai. Two degrees, one 4.0, and an unhealthy number of browser tabs open.</p>
               <div className="about-credentials">
                 {EDUCATION.map((ed) => (
                   <div className="credential-item" key={ed.degree}>
