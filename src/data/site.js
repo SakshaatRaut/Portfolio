@@ -4,7 +4,7 @@ export const SITE = {
   last: 'Raut',
   name: 'Sakshaat Raut',
   role: 'AI & Machine Learning Engineer',
-  location: 'College Park, MD',
+  location: 'United States',
   timeZone: 'America/New_York',
   email: 'sash.raut10@gmail.com',
   phone: '+1 (227) 275-1236',

@@ -153,7 +153,7 @@ export default function About() {
             <div className="flex-col">
               <div className="awwwards-badge"></div>
               <h2>Education &amp;<br />Background</h2>
-              <p>I am an AI and Machine Learning Engineer based in {SITE.location}, studying Applied Machine Learning at the University of Maryland after a BTech in Information Technology in Mumbai.</p>
+              <p>I am an AI and Machine Learning Engineer based in the {SITE.location}, studying Applied Machine Learning at the University of Maryland after a BTech in Information Technology in Mumbai.</p>
               <div className="about-credentials">
                 {EDUCATION.map((ed) => (
                   <div className="credential-item" key={ed.degree}>
