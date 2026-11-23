@@ -7268,6 +7268,26 @@ html.js .life-hobby-photos.reveal.in-view .life-photo-reveal {
    }
 }
 
+/* ------------------------- Aligned columns (services & experience) -------------------------------------------------- */
+/* Each column shares the same row tracks, so dates, stripes, titles, org lines and lists start on one line across columns. */
+@media screen and (min-width: 721px) {
+   .about-services .row:nth-child(2) {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-rows: repeat(5, auto);
+   }
+
+   .about-services .row:nth-child(2) .flex-col {
+      width: auto;
+      display: grid;
+      grid-template-rows: subgrid;
+      grid-row: span 5;
+      align-content: start;
+   }
+
+   .about-services .row:nth-child(2) .flex-col > * { align-self: start; }
+}
+
 /* Illustrated posters already have their own margins: show them whole, no zoom or inner parallax */
 .life-photo.is-art { --zoom: 1; --py: 0px !important; }
 .life-photo.is-art.is-tilting { --zoom: 1.03; }
