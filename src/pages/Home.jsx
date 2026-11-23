@@ -128,14 +128,14 @@ export default function Home() {
             <div className="row">
               <div className="flex-col">
                 <h4 className="span-lines animate">
-                  <span className="span-line"><span className="span-line-inner">Building ML systems that</span></span>
-                  <span className="span-line"><span className="span-line-inner">real people actually use.</span></span>
+                  <span className="span-line"><span className="span-line-inner">I build ML systems that</span></span>
+                  <span className="span-line"><span className="span-line-inner">make it out of the notebook.</span></span>
                 </h4>
               </div>
               <div className="flex-col">
                 <div className="text-wrap reveal">
                   <p>
-                    I’m an AI and Machine Learning Engineer and an MS in Applied Machine Learning student at the University of Maryland. I build retrieval pipelines, vision models and LLM tools that real people use, from data and training through to APIs and deployment.
+                    I’m an AI and Machine Learning Engineer and an MS in Applied Machine Learning student at the University of Maryland. I build retrieval pipelines, vision models and LLM tools that real people use, from data and training through to APIs and deployment. I care as much about the deploy button as I do about the loss curve.
                   </p>
                 </div>
                 <div className="btn-wrap-intro">
@@ -164,7 +164,7 @@ export default function Home() {
           <div className="container">
             <div className="grid-sub-title reveal">
               <div className="flex-col">
-                <h5>Recent work</h5>
+                <h5>Recently shipped</h5>
               </div>
             </div>
             <ul className="work-items mouse-pos-list-image-wrap">
