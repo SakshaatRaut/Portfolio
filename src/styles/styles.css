@@ -6968,9 +6968,13 @@ html.js .work-tiles ul li.visible:nth-child(4) { animation-delay: .24s; }
 
 /* ------------------------- Life Beyond -------------------------------------------------- */
 
+#life { overflow-x: clip; }
+
 .life-header { padding-bottom: calc(var(--section-padding) * .35); }
+.life-header h1 { will-change: transform, opacity; }
 
 .life-intro { padding-top: 2.5em; }
+.life-intro .stripe { margin-bottom: 2em; max-width: 34em; }
 
 .life-intro p {
    max-width: 34em;
@@ -6979,6 +6983,7 @@ html.js .work-tiles ul li.visible:nth-child(4) { animation-delay: .24s; }
    margin: 0;
 }
 
+/* Marquee: two rows, opposite directions, driven by scroll speed in JS */
 .life-marquee {
    padding: calc(var(--section-padding) * .2) 0;
    overflow: hidden;
@@ -6986,25 +6991,29 @@ html.js .work-tiles ul li.visible:nth-child(4) { animation-delay: .24s; }
    border-bottom: 1px solid var(--color-border);
 }
 
+.life-marquee-row { overflow: hidden; }
+
 .life-marquee-track {
    display: flex;
    width: max-content;
-   animation: lifeMarquee 26s linear infinite;
+   will-change: transform;
 }
 
-.life-marquee-group {
-   display: flex;
-   flex-shrink: 0;
-}
+.life-marquee-group { display: flex; flex-shrink: 0; }
 
 .life-marquee span {
    display: inline-flex;
    align-items: center;
-   font-size: clamp(3em, 8vw, 8em);
+   font-size: clamp(2.6em, 8vw, 8em);
    line-height: 1.1;
    letter-spacing: -0.03em;
    white-space: nowrap;
    padding-right: .35em;
+}
+
+.life-marquee-row.outline span {
+   color: transparent;
+   -webkit-text-stroke: 1px var(--color-dark);
 }
 
 .life-marquee-dot {
@@ -7016,15 +7025,31 @@ html.js .work-tiles ul li.visible:nth-child(4) { animation-delay: .24s; }
    background: var(--color-blue);
 }
 
-@keyframes lifeMarquee {
-   from { transform: translate3d(0, 0, 0); }
-   to { transform: translate3d(-50%, 0, 0); }
-}
-
+/* Hobby sections */
 .life-hobby {
+   position: relative;
    padding-top: calc(var(--section-padding) * .6);
    padding-bottom: calc(var(--section-padding) * .3);
 }
+
+.life-hobby-num {
+   position: absolute;
+   top: 0;
+   right: 4vw;
+   font-size: clamp(8em, 24vw, 26em);
+   line-height: .8;
+   letter-spacing: -0.06em;
+   color: transparent;
+   -webkit-text-stroke: 1px color-mix(in srgb, var(--accent) 35%, transparent);
+   pointer-events: none;
+   user-select: none;
+   z-index: 0;
+   will-change: transform;
+}
+
+.life-hobby.flip .life-hobby-num { right: auto; left: 4vw; }
+
+.life-hobby .container { position: relative; z-index: 1; }
 
 .life-hobby .row {
    align-items: center;
@@ -7038,7 +7063,7 @@ html.js .work-tiles ul li.visible:nth-child(4) { animation-delay: .24s; }
 .life-hobby-photos { flex: 1 1 auto; width: auto; min-width: 0; }
 
 .life-hobby-text h5 { margin: 0 0 1.5em 0; }
-.life-hobby-text .stripe { margin-bottom: 2em; }
+.life-hobby-text .stripe { margin-bottom: 2em; transform-origin: left center; }
 
 .life-hobby-text h2 {
    margin: 0;
@@ -7061,45 +7086,115 @@ html.js .work-tiles ul li.visible:nth-child(4) { animation-delay: .24s; }
    opacity: .6;
 }
 
+.life-body { margin: 0; line-height: 1.65; }
+
+/* Fact boxes: equal width and height, text aligned to the same top line */
 .life-facts {
    list-style: none;
    padding: 0;
    margin: 2em 0 0 0;
    display: grid;
-   grid-template-columns: 1fr 1fr;
-   gap: 1.5em;
+   grid-template-columns: repeat(2, minmax(0, 1fr));
+   gap: 1em;
 }
 
-.life-facts h5 { margin: 0 0 .4em 0; font-size: .75em; }
-.life-facts p { margin: 0; }
+.life-facts li {
+   display: flex;
+   flex-direction: column;
+   padding: 1em 1.1em;
+   border: 1px solid var(--color-border);
+   border-radius: 12px;
+   transition: border-color .4s ease, transform .6s cubic-bezier(.16, 1, .3, 1), background-color .4s ease;
+}
 
+.life-facts li:hover {
+   border-color: var(--accent);
+   background: color-mix(in srgb, var(--accent) 6%, transparent);
+   transform: translateY(-4px);
+}
+
+.life-facts h5 { margin: 0 0 .5em 0; font-size: .75em; }
+.life-facts p { margin: 0; line-height: 1.5; text-wrap: pretty; }
+
+/* Staggered text reveal */
+html.js .life-hobby-text.reveal,
+html.js .life-intro .reveal { opacity: 1; animation: none; }
+
+html.js .life-hobby-text.reveal > *,
+html.js .life-intro .reveal > * {
+   opacity: 0;
+   transform: translate3d(0, 2.2em, 0);
+}
+
+html.js .life-hobby-text.reveal > .stripe,
+html.js .life-intro .reveal > .stripe { transform: scaleX(0); }
+
+html.js .life-hobby-text.reveal.in-view > *,
+html.js .life-intro .reveal.in-view > * {
+   opacity: 1;
+   transform: none;
+   transition: opacity .9s cubic-bezier(.16, 1, .3, 1), transform 1.1s cubic-bezier(.16, 1, .3, 1);
+   transition-delay: calc(var(--d, 0) * .08s);
+}
+
+/* Photo grid */
 .life-photo-grid {
    display: grid;
    grid-template-columns: 1.25fr 1fr;
    grid-template-rows: 1fr 1fr;
    gap: 1em;
    aspect-ratio: 4 / 3;
+   perspective: 1200px;
 }
 
+.life-photo-cell { position: relative; will-change: transform; min-height: 0; }
+.life-photo-grid:not(.portrait) .life-photo-cell:first-child { grid-row: span 2; }
+
+.life-photo-reveal { height: 100%; }
+
 .life-photo {
+   --rx: 0deg;
+   --ry: 0deg;
+   --gx: 50%;
+   --gy: 50%;
+   --py: 0px;
+   --zoom: 1.08;
    position: relative;
+   height: 100%;
    overflow: hidden;
    border-radius: 14px;
    background: var(--color-lightgray);
-   transition: transform .8s cubic-bezier(.16, 1, .3, 1);
+   transform: perspective(900px) rotateX(var(--rx)) rotateY(var(--ry));
+   transform-style: preserve-3d;
+   transition: transform .9s cubic-bezier(.16, 1, .3, 1), box-shadow .6s ease;
 }
 
-.life-photo:first-child { grid-row: span 2; }
+.life-photo.is-tilting {
+   --zoom: 1.12;
+   transition: transform .25s cubic-bezier(.16, 1, .3, 1), box-shadow .6s ease;
+   box-shadow: 0 30px 60px -25px rgba(28, 29, 32, .45);
+}
 
 .life-photo .overlay-image {
    background-size: cover;
    background-position: center;
-   transform: scale(1.06);
+   inset: -3% 0;
+   height: auto;
+   transform: translate3d(0, var(--py), 0) scale(var(--zoom));
    transition: transform 1.2s cubic-bezier(.16, 1, .3, 1);
 }
 
-.life-photo:hover .overlay-image { transform: scale(1); }
-.life-photo:hover { transform: translateY(-6px); }
+.life-photo-glare {
+   position: absolute;
+   inset: 0;
+   pointer-events: none;
+   background: radial-gradient(circle at var(--gx) var(--gy), rgba(255, 255, 255, .35), transparent 55%);
+   opacity: 0;
+   transition: opacity .5s ease;
+   mix-blend-mode: soft-light;
+}
+
+.life-photo.is-tilting .life-photo-glare { opacity: 1; }
 
 .life-photo.empty {
    border: 1.5px dashed color-mix(in srgb, var(--accent) 55%, transparent);
@@ -7118,28 +7213,23 @@ html.js .work-tiles ul li.visible:nth-child(4) { animation-delay: .24s; }
    font-size: .9em;
 }
 
-html.js .life-hobby-photos.reveal.in-view .life-photo {
-   animation: lifePhotoIn 1.1s cubic-bezier(.16, 1, .3, 1) both;
-   animation-delay: calc(var(--i) * .12s);
+/* Photo reveal: curtain wipe + settle */
+html.js .life-hobby-photos.reveal { opacity: 1; animation: none; }
+
+html.js .life-hobby-photos.reveal .life-photo-reveal {
+   clip-path: inset(100% 0 0 0 round 14px);
+   transform: translate3d(0, 60px, 0) scale(.94);
 }
 
-@keyframes lifePhotoIn {
-   from { opacity: 0; transform: translateY(40px) scale(.96); }
-   to { opacity: 1; transform: none; }
+html.js .life-hobby-photos.reveal.in-view .life-photo-reveal {
+   clip-path: inset(0 0 0 0 round 14px);
+   transform: none;
+   transition: clip-path 1.3s cubic-bezier(.77, 0, .175, 1), transform 1.4s cubic-bezier(.16, 1, .3, 1);
+   transition-delay: calc(var(--i) * .14s);
 }
 
-@media (prefers-reduced-motion: reduce) {
-   .life-marquee-track { animation: none; }
-   html.js .life-hobby-photos.reveal.in-view .life-photo { animation: none; }
-}
 
-@media screen and (max-width: 840px) {
-   .life-hobby .row,
-   .life-hobby.flip .row { flex-direction: column; align-items: stretch; }
-   .life-hobby-text,
-   .life-hobby-photos { flex: 1 1 auto; width: 100%; }
-}
-
+/* Portrait layout: three tall photos with a staggered middle one */
 .life-photo-grid.portrait {
    grid-template-columns: repeat(3, 1fr);
    grid-template-rows: auto;
@@ -7147,13 +7237,38 @@ html.js .life-hobby-photos.reveal.in-view .life-photo {
    padding-bottom: 8%;
 }
 
-.life-photo-grid.portrait .life-photo { aspect-ratio: 3 / 4; }
-
-.life-photo-grid.portrait .life-photo:first-child { grid-row: auto; }
-.life-photo-grid.portrait .life-photo:nth-child(2) { transform: translateY(8%); }
-.life-photo-grid.portrait .life-photo:nth-child(2):hover { transform: translateY(calc(8% - 6px)); }
+.life-photo-grid.portrait .life-photo-reveal { aspect-ratio: 3 / 4; height: auto; }
+.life-photo-grid.portrait .life-photo-cell:nth-child(2) { margin-top: 16%; }
 
 @media screen and (max-width: 840px) {
+   .life-hobby .row,
+   .life-hobby.flip .row { flex-direction: column; align-items: stretch; gap: 2.5em; }
+   .life-hobby-text,
+   .life-hobby-photos { flex: 1 1 auto; width: 100%; }
+   .life-hobby-num { font-size: 40vw; right: 2vw; }
+   .life-hobby.flip .life-hobby-num { left: auto; right: 2vw; }
    .life-photo-grid.portrait { gap: .6em; padding-bottom: 0; }
-   .life-photo-grid.portrait .life-photo:nth-child(2) { transform: none; }
+   .life-photo-grid.portrait .life-photo-cell:nth-child(2) { margin-top: 10%; }
 }
+
+@media screen and (max-width: 540px) {
+   .life-facts { grid-template-columns: 1fr; gap: .75em; }
+   .life-photo-grid:not(.portrait) { aspect-ratio: 1 / 1; gap: .6em; }
+   .life-marquee-row.outline span { -webkit-text-stroke-width: .75px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+   html.js .life-hobby-text.reveal > *,
+   html.js .life-intro .reveal > *,
+   html.js .life-hobby-photos.reveal .life-photo-reveal {
+      opacity: 1;
+      transform: none;
+      clip-path: none;
+      transition: none;
+   }
+}
+
+/* Illustrated posters already have their own margins: show them whole, no zoom or inner parallax */
+.life-photo.is-art { --zoom: 1; --py: 0px !important; }
+.life-photo.is-art.is-tilting { --zoom: 1.03; }
+.life-photo.is-art .overlay-image { inset: 0; }
