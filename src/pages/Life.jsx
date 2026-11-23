@@ -33,7 +33,6 @@ function useLifeMotion(rootRef) {
     const root = rootRef.current;
     if (!root) return undefined;
 
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
     const cleanups = [];
 
@@ -64,7 +63,7 @@ function useLifeMotion(rootRef) {
       const winH = window.innerHeight;
       const mid = winH / 2;
 
-      if (!reduceMotion) {
+      {
         cells.forEach((cell, i) => {
           const r = cell.getBoundingClientRect();
           if (r.bottom < -200 || r.top > winH + 200) return;
@@ -92,12 +91,13 @@ function useLifeMotion(rootRef) {
       marquee.forEach((m) => {
         const half = m.el.scrollWidth / 2;
         if (!half) return;
-        const base = reduceMotion ? 0 : half / 30000;
-        const boost = reduceMotion ? 0 : 1 + velocity * 0.18;
+        // Always drifting on its own (like the home hero name); scrolling only speeds it up.
+        const base = half / 20000;
+        const boost = 1 + velocity * 0.18;
         m.pos += m.dir * scrollDir * base * boost * dt;
         if (m.pos <= -half) m.pos += half;
         if (m.pos > 0) m.pos -= half;
-        const skew = reduceMotion ? 0 : Math.max(-8, Math.min(8, velocity * 0.25 * scrollDir * -m.dir));
+        const skew = Math.max(-8, Math.min(8, velocity * 0.25 * scrollDir * -m.dir));
         m.el.style.transform = `translate3d(${m.pos.toFixed(2)}px, 0, 0) skewX(${skew.toFixed(2)}deg)`;
       });
 
@@ -107,7 +107,7 @@ function useLifeMotion(rootRef) {
     cleanups.push(() => cancelAnimationFrame(raf));
 
     // ---- 3D tilt + glare on photo cards (desktop pointers only) ----
-    if (!reduceMotion && finePointer) {
+    if (finePointer) {
       photos.forEach((photo) => {
         const onMove = (e) => {
           const r = photo.getBoundingClientRect();
